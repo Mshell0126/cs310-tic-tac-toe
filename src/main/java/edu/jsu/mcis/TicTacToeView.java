@@ -22,8 +22,15 @@ public class TicTacToeView {
            Return as a TicTacToeMove object. */
         
         // INSERT YOUR CODE HERE
-
-        return null; // remove this line later!
+        if (isXTurn){System.out.println("Player 'X',");}
+        else{System.out.println("Player 'O',");}
+        System.out.println("Please enter the row and column of your next move.");
+        System.out.println("row: ");
+        int row = keyboard.nextInt();
+        System.out.println("column: ");
+        int col = keyboard.nextInt();
+        TicTacToeMove move = new TicTacToeMove(row, col);
+        return move; 
 
     }
 

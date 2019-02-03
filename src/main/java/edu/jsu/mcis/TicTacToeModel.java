@@ -141,10 +141,9 @@ public class TicTacToeModel {
            value */
         
         // INSERT YOUR CODE HERE
-        if(isTie()){return Result.TIE;}
-        else if (isMarkWin(Mark.X)){return Result.X;}
+        if (isMarkWin(Mark.X)){return Result.X;}
         else if (isMarkWin(Mark.O)){return Result.O;}
-
+        else if(isTie()) {return Result.TIE;}
         else {return Result.NONE;}
         
     }
@@ -155,8 +154,30 @@ public class TicTacToeModel {
            winner */
         
         // INSERT YOUR CODE HERE
+        boolean d1_win = true;
+        boolean d2_win = true;
 
-        return false; // remove this line later!
+        for (int i = 0; i < width; i++){
+            
+            if (!board[i][i].equals(mark)){d1_win = false;}//diagonal 1
+            if (!board[width - 1 - i][width - 1 - i].equals(mark)){d2_win = false;}//diagonal 2
+    
+            boolean h_win = true;
+            boolean v_win = true;
+
+            for (int j = 0; j < width; j++){
+                
+                if(!board[i][j].equals(mark)){h_win = false;}//horizontal
+                if(!board[j][i].equals(mark)){v_win = false;}//vertical
+            }
+
+            if(h_win || v_win){return true;}
+                
+        }
+
+        if (d1_win || d2_win){return true;}
+
+        else{return false;}
 
     }
 	
@@ -165,13 +186,13 @@ public class TicTacToeModel {
         /* Check the squares of the board to see if the game is a tie */
         
         // INSERT YOUR CODE HERE
-        
+        boolean tie = true;
         for (int i = 0; i < width; i++){
             for (int j = 0; j < width; j++){
-                if(board[i][j].equals(Mark.EMPTY)){return false;}
+                if(board[i][j].equals(Mark.EMPTY)){tie = false;}
             }
         }
-        return true; // remove this line later!
+        return tie;
         
     }
 
@@ -207,6 +228,14 @@ public class TicTacToeModel {
         /* Output the board contents as a string (see examples) */
         
         // INSERT YOUR CODE HERE
+        String s = "";
+        for(int i = 0; i < width; i++) {
+            output.append(i);
+            s = s + "\n " + i;
+            for(int j = 0; j < width; j++){ s = s + board[i][j].toString();}
+        }
+
+        output.append(s);
         
         return output.toString();
         
