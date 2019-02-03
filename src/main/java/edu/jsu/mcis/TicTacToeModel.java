@@ -118,7 +118,7 @@ public class TicTacToeModel {
         /* Return TRUE if the square at specified location is marked */
         
         // INSERT YOUR CODE HERE
-        if (board[row][col].equals(Mark.EMPTY)) {return true;}
+        if (!board[row][col].equals(Mark.EMPTY)) {return true;}
 
         else {return false;}
             
@@ -160,7 +160,7 @@ public class TicTacToeModel {
         for (int i = 0; i < width; i++){
             
             if (!board[i][i].equals(mark)){d1_win = false;}//diagonal 1
-            if (!board[width - 1 - i][width - 1 - i].equals(mark)){d2_win = false;}//diagonal 2
+            if (!board[i][width - 1 - i].equals(mark)){d2_win = false;}//diagonal 2
     
             boolean h_win = true;
             boolean v_win = true;
@@ -228,10 +228,10 @@ public class TicTacToeModel {
         /* Output the board contents as a string (see examples) */
         
         // INSERT YOUR CODE HERE
-        String s = "";
+        String s = "\n";
         for(int i = 0; i < width; i++) {
             output.append(i);
-            s = s + "\n " + i;
+            s = s + "\n" + i + " ";
             for(int j = 0; j < width; j++){ s = s + board[i][j].toString();}
         }
 
