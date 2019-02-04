@@ -38,7 +38,7 @@ public class TicTacToeModel {
         O("O"), 
         TIE("TIE"), 
         NONE("NONE");
-
+        
         private String message;
         
         private Result(String msg) {
