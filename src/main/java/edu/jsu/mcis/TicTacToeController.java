@@ -38,7 +38,7 @@ public class TicTacToeController implements ActionListener {
         
         int row = Integer.valueOf(name.substring(6, 7));
         int col = Integer.valueOf(name.substring(7, 8));
-        System.out.println("" + row + " " + col);
+        //System.out.println("" + row + " " + col);
 
         if(model.makeMark(row, col)) {view.updateSquares();}
         

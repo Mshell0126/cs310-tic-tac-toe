@@ -52,7 +52,7 @@ public class TicTacToeView extends JPanel {
             for(int j = 0; j < width; j++){ 
 
                 String mark = controller.getMarkAsString(i, j);
-                System.out.println(mark);
+                //System.out.println(mark);
                 board[i][j].setText(mark);
             }
         }
